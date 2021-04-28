@@ -1,0 +1,142 @@
+/* Image will take as much space as possible.*/
+img {
+    width: 100%;
+}
+
+/* Title Styling. */
+h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1em;
+    font-size: 22px;
+    font-family: "Cooper Black", serif;
+}
+
+/* Image class position relative for remove button and img is cropped with overflow. */
+.image {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button styling, stays hidden using z-index until hover on image and turns red if hover on button. */
+.image button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: white;
+    padding: 7px 16px;
+    background-color: #4CAF50;
+    z-index: -1;
+}
+
+.image:hover button {
+    z-index: 1;
+}
+
+.image button:hover {
+    background-color: #e54444;
+}
+
+/* Used for Grid. */
+.image:nth-of-type(1) {
+    grid-area: one;
+}
+
+.image:nth-of-type(2) {
+    grid-area: two;
+}
+
+.image:nth-of-type(3) {
+    grid-area: three;
+}
+
+.image:nth-of-type(4) {
+    grid-area: four;
+}
+
+.image:nth-of-type(5) {
+    grid-area: five;
+}
+
+.image:nth-of-type(6) {
+    grid-area: six;
+}
+
+.image:nth-of-type(7) {
+    grid-area: seven;
+}
+
+.image:nth-of-type(8) {
+    grid-area: eight;
+}
+
+.image:nth-of-type(9) {
+    grid-area: nine;
+}
+
+.image:nth-of-type(10) {
+    grid-area: ten;
+}
+
+.image:nth-of-type(11) {
+    grid-area: eleven;
+}
+
+.image:nth-of-type(12) {
+    grid-area: twelve;
+}
+
+/* Smallest breakpoint first, of mobile with 1 column. */
+.gallery > .img-container {
+    margin: 1.25em .75em;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "three"
+        "one"
+        "five"
+        "six"
+        "seven"
+        "eleven"
+        "four"
+        "two"
+        "eight"
+        "ten"
+        "tweleve";
+}
+
+/* Tablet breakpoint with justify center to center content and 2 grid columns. */
+@media screen and (min-width: 601px) and (max-width: 960px) {
+    .gallery > .img-container {
+        grid-template-columns: repeat(2, 48%);
+        justify-content: center;
+        grid-template-rows: 14rem 12rem 14rem 12rem;
+        grid-template-areas:
+        "five three"
+        "five six"
+        "nine six"
+        "seven eleven"
+        "seven one"
+        "two four"
+        "eight four"
+        "ten twelve";
+    }
+}
+
+/* Desktop breakpoint with 4 columns. */
+@media screen and (min-width: 960px) {
+    .gallery > .img-container {
+        justify-content: center;
+        grid-template-columns: repeat(4, 24%);
+        grid-template-rows: 14rem 12rem 14rem 12rem;
+        grid-template-areas:
+        "five three nine two"
+        "five six eight seven"
+        "one six four seven"
+        "eleven ten four twelve";
+
+    }
+}
